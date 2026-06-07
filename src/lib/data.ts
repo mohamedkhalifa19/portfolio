@@ -82,7 +82,7 @@ export const PROJECTS: Project[] = [
     description:
       "Developed a modern and fully responsive e-commerce platform for Nassar Perfumes, featuring product browsing, category filtering, detailed product pages, and an optimized shopping experience across all devices.",
     techs: ["Next.js", "Tailwind CSS", "shadcn/ui"],
-    githubUrl: "https://github.com/your-username/nassar-perfumes-store",
+    githubUrl: "https://github.com/mohamedkhalifa19/NASSAR-Fragrances",
     gradient: "from-amber-600/20 via-orange-500/10 to-transparent",
     role: "Frontend",
   },
