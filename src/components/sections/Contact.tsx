@@ -2,7 +2,16 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Github, Linkedin, Mail, MapPin, CheckCircle } from "lucide-react";
+import nodemailer from "nodemailer";
+
+import {
+  Send,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  CheckCircle,
+} from "lucide-react";
 import { OWNER } from "@/lib/data";
 import SectionHeader from "@/components/ui/SectionHeader";
 
@@ -13,16 +22,25 @@ export default function Contact() {
   const [fields, setFields] = useState({ name: "", email: "", message: "" });
 
   function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) {
     setFields((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    const { email, message, name } = fields;
     setFormState("submitting");
     // Simulate async send — wire up to Formspree / Resend in production
-    await new Promise((r) => setTimeout(r, 1200));
+    await fetch("/api/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+      }),
+    });
     setFormState("success");
   }
 
@@ -50,9 +68,7 @@ export default function Contact() {
             className="space-y-6"
           >
             <div className="rounded-2xl border border-white/[0.06] bg-slate-900/60 p-6 space-y-5 md:w-full w-[280px]">
-              <h3 className="text-lg font-bold text-white">
-                Get in touch
-              </h3>
+              <h3 className="text-lg font-bold text-white">Get in touch</h3>
 
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-sm text-slate-400">
@@ -148,7 +164,8 @@ export default function Contact() {
                 <CheckCircle className="w-12 h-12 text-emerald-400" />
                 <h3 className="text-xl font-bold text-white">Message sent!</h3>
                 <p className="text-slate-400 text-sm">
-                  Thanks for reaching out. I&apos;ll get back to you within 24 hours.
+                  Thanks for reaching out. I&apos;ll get back to you within 24
+                  hours.
                 </p>
                 <button
                   onClick={() => {
@@ -225,7 +242,11 @@ export default function Contact() {
                     <>
                       <motion.span
                         animate={{ rotate: 360 }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                        transition={{
+                          duration: 1,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
                         className="w-4 h-4 border-2 border-slate-950/40 border-t-slate-950 rounded-full"
                       />
                       Sending...
