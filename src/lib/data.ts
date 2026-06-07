@@ -76,14 +76,15 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    id: "Quran-kareem",
-    title: "Quran-kareem  website",
-    subtitle: "Property Listings UI",
-    description: "A pixel-perfect, fully responsive Quran-kareem  website.",
+    id: "nassar-perfumes-store",
+    title: "Nassar Perfumes Store",
+    subtitle: "E-Commerce Perfume Store",
+    description:
+      "Developed a modern and fully responsive e-commerce platform for Nassar Perfumes, featuring product browsing, category filtering, detailed product pages, and an optimized shopping experience across all devices.",
+    techs: ["Next.js", "Tailwind CSS", "shadcn/ui"],
+    githubUrl: "https://github.com/your-username/nassar-perfumes-store",
+    gradient: "from-amber-600/20 via-orange-500/10 to-transparent",
     role: "Frontend",
-    techs: ["Next", "Tailwindcss", "Shadcn ui"],
-    githubUrl: "https://github.com/mohamedkhalifa19/Quran-kareem",
-    gradient: "from-emerald-600/20 via-teal-500/10 to-transparent",
   },
 ];
 
