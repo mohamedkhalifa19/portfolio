@@ -70,8 +70,8 @@ export const PROJECTS: Project[] = [
     description:
       "A fully-featured e-commerce SPA with cart management, product filtering, and user authentication. Built using React Hooks and Context API for global state, with React Router for client-side navigation.",
     role: "Frontend",
-    techs: ["React.js", "Context API", "React Router", "Hooks", "CSS3"],
-    githubUrl: "https://github.com/mohamedkhalifa19/ecommerece",
+    techs: ["Next.js", "Tailwind CSS", "shadcn/ui", "supabase", "prisma orm"],
+    githubUrl: "https://github.com/mohamedkhalifa19/ecomerece-",
     gradient: "from-sky-600/20 via-cyan-500/10 to-transparent",
     featured: true,
   },
